@@ -3,7 +3,7 @@
 &emsp;The UserInsight-Streaming-Data-Pipeline is a real-time data processing pipeline that ingests data from an API into Kafka, processes it using Apache Spark, and stores it in AWS S3. An AWS Lambda function is triggered upon new data arrival in S3, pulling data into AWS Redshift for further analytics and visualization in Looker.key components such as Kafka and Spark can be easily installed and managed using Docker. <br>
 !! You can view the dashboard [here. ](https://lookerstudio.google.com/reporting/581cb65a-beb0-45b6-a14c-8f86a316fd18)!! <br>
 ## Architecture
-<img src="readme_pic/architecture_pic.jpg" alt="Architecture" width="800">
+<img src="readme_pic/UserInsight_Architecture.png" alt="Architecture" width="800">
 1. Upload raw data to AWS S3 (data lake) to handle data from multiple sources.<br>
 2. Download raw data from AWS S3 for processing.<br>
 3. Transform the raw data into a suitable format for the data warehouse using Pandas and upload it back to AWS S3.<br>
@@ -11,7 +11,7 @@
 5. Use data from the warehouse to create dashboards in Looker Studio for insights and reporting.<br>
 
 ## Dashboard
-<img src="readme_pic/dashboard_pic.png" alt="Dashboard" width="800">
+<img src="UserInsight_Dashboard.png" alt="Dashboard" width="800">
 I use Looker Studio to create dashboards using data from the data warehouse.
 
 !! You can view the dashboard [here. ](https://lookerstudio.google.com/reporting/581cb65a-beb0-45b6-a14c-8f86a316fd18)!! <br>
@@ -27,12 +27,6 @@ While developing this project, I connected Looker Studio to AWS Redshift for dat
 - Data Warehouse - AWS Redshift <br>
 - Data Visualization - Looker Studio <br>
 - Language - Python <br>
-
-### Data Warehouse
-<img src="readme_pic/datawarehouse_pic.png" alt="DataWarehouse" width="600">
-
-### DAG
-<img src="readme_pic/dag_pic.png" alt="DAG" width="600">
 
 ## Set up
 1. Check that your Docker has more than 4 GB of RAM. (to use airflow)
