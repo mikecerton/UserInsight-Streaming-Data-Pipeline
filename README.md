@@ -75,6 +75,8 @@ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bi
 ```
 
 ## Disclaimer
+- RandomUser : <br>
+&emsp;https://randomuser.me/documentation <br>
 - Apache Kafka : <br>
 &emsp;https://kafka.apache.org/documentation/ <br>
 &emsp;https://hub.docker.com/r/apache/kafka <br>
