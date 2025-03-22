@@ -11,7 +11,7 @@
 5. Use data from the warehouse to create dashboards in Looker Studio for insights and reporting.<br>
 
 ## Dashboard
-<img src="UserInsight_Dashboard.png" alt="Dashboard" width="800">
+<img src="UserInsight_Dashboard.png" alt="Dashboard" width="750">
 I use Looker Studio to create dashboards using data from the data warehouse.
 
 !! You can view the dashboard [here. ](https://lookerstudio.google.com/reporting/581cb65a-beb0-45b6-a14c-8f86a316fd18)!! <br>
