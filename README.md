@@ -32,7 +32,7 @@ While developing this project, I connected Looker Studio to AWS Redshift for dat
 ## Set up
 1. Check that your Docker has more than 4 GB of RAM. (to use airflow)
 ```bash
-docker run --rm "debian:bookworm-slim" bash -c "numfmt --to iec $(echo $(($(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE))))"
+docker-compose -f docker_kafka.yml -f docker_spark.yml up -d
 ```
 2. clone this github repository
 ```bash
