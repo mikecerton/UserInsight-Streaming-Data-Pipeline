@@ -14,7 +14,7 @@
 <img src="readme_pic/dashboard_pic.png" alt="Dashboard" width="800">
 I use Looker Studio to create dashboards using data from the data warehouse.
 
-!! You can view the dashboard [here. ](https://lookerstudio.google.com/reporting/0ef16b84-55f2-47dc-afd0-f62f6d1a8bd4)!! <br>
+!! You can view the dashboard [here. ](https://lookerstudio.google.com/reporting/581cb65a-beb0-45b6-a14c-8f86a316fd18)!! <br>
 #### A special note
 While developing this project, I connected Looker Studio to AWS Redshift for data. However, due to AWS free tier limits, Redshift cannot run continuously. As a result, the dashboard now uses data from a CSV file exported from Redshift, but it appears the same as when directly connected to Redshift.
 
