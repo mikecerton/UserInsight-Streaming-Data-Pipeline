@@ -30,52 +30,60 @@ While developing this project, I connected Looker Studio to AWS Redshift for dat
 - Programming Language: Python <br>
 
 ## Set up
-1. Check that your Docker has more than 4 GB of RAM. (to use airflow)
+#### 1. Clone the Repository <br>
+Clone the GitHub repository and navigate to the project directory:
+```bash
+git clone https://github.com/mikecerton/UserInsight-Streaming-Data-Pipeline.git
+cd UserInsight-Streaming-Data-Pipeline
+```
+#### 2. Set Up AWS Services <br>
+Ensure the following AWS resources are created before running the pipeline:
+- Amazon Redshift – for data warehousing
+- Amazon S3 – for storing processed data
+- AWS Lambda – for automating data transfers
+#### 3. Configure Environment Variables
+Create a .env file in the project root directory and add your AWS and Kafka credentials:
+```bash
+AWS_ACCESS_KEY_ID = you_data
+AWS_SECRET_ACCESS_KEY = you_data
+AWS_REGION = you_data
+
+kafka_servers = you_data
+kafka_cid = you_data
+kafka_topic_name = you_data
+link_api = you_data
+
+s3_output_path = you_data
+
+redshift_host = you_data
+redshift_port = 5you_data
+redshift_db = you_data
+redshift_user = you_data
+redshift_password = you_data
+iam_role = you_data
+```
+Note: Keep your .env file secure and do not share it publicly. <br>
+#### 4. Start Docker Containers <br>
+Run the following command to start Kafka and Spark services:
 ```bash
 docker-compose -f docker_kafka.yml -f docker_spark.yml up -d
 ```
-2. clone this github repository
+#### 5. Run the Spark Streaming Job <br>
+Execute the Spark job to process data from Kafka and store it in S3: 
 ```bash
-git clone https://github.com/mikecerton/The-Retail-ELT-Pipeline-End-To-End-project.git
-cd The-Retail-ELT-Pipeline-End-To-End-project
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bitnami/my_spark/spark_stream_s3.py
 ```
-3. Run mkdir to create directories: logs, plugins, and config.
-```bash
-mkdir logs, plugins, config
-```
-4. put you data into .env file like this
-```bash
-AIRFLOW_UID=50000
-
-bucket_name = your bucket_name
-aws_access_key_id = your aws_access_key_id
-aws_secret_access_key = your aws_secret_access_key
-region_name = your region_name
-
-redshift_host = your redshift_host
-redshift_port = your redshift_port
-redshift_db = your redshift_db
-redshift_user = your redshift_user
-redshift_password = your redshift_password
-iam_role = your iam_role
-```
-5. run (airflow-init)
-```bash
-docker-compose up airflow-init
-```
-6. run (start docker-compose)
-```bash
-docker-compose up
-```
-7. you can start activate dag at http://localhost:8080
 
 ## Disclaimer
-- airflow : <br>
-&emsp;https://github.com/mikecerton/Apache_Airflow_Tutorial <br>
+- Apache Kafka : <br>
+&emsp;https://kafka.apache.org/documentation/ <br>
+&emsp;https://hub.docker.com/r/apache/kafka <br>
+- Apache Spark : <br>
+&emsp;https://spark.apache.org/docs/latest/ <br>
+&emsp;https://hub.docker.com/_/spark/ <br>
+&emsp;https://bitnami.com/stacks/spark <br>
+&emsp;https://hub.docker.com/r/bitnami/spark/ <br>
 - AWS : <br>
 &emsp;https://docs.aws.amazon.com/s3/ <br>
 &emsp;https://docs.aws.amazon.com/redshift/ <br>
-&emsp;https://www.youtube.com/watch?v=WAjPQZ8Osmg&list=LL&index=14&t=2947s <br>
-&emsp;https://www.youtube.com/watch?v=7r2z3Qn3Qz8&list=LL&index=27&t=1672s
-- Other : <br>
-&emsp;https://www.geeksforgeeks.org/introduction-to-psycopg2-module-in-python/
+
