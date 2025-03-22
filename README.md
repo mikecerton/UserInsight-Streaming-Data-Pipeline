@@ -71,6 +71,7 @@ docker-compose -f docker_kafka.yml -f docker_spark.yml up -d
 #### 5. Run the Spark Streaming Job <br>
 Execute the Spark job to process data from Kafka and store it in S3: 
 ```bash
+docker exec -it spark-worker /bin/bash
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bitnami/my_spark/spark_stream_s3.py
 ```
 
