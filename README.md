@@ -1,6 +1,6 @@
 # UserInsight-Streaming-Data-Pipeline
 ## Overview
-&emsp;The UserInsight-Streaming-Data-Pipeline is a real-time data processing pipeline that ingests data from an API into Kafka, processes it using Apache Spark, and stores it in AWS S3. An AWS Lambda function is triggered upon new data arrival in S3, pulling data into AWS Redshift for further analytics and visualization in Looker.key components such as Kafka and Spark can be easily installed and managed using Docker. <br>
+&emsp;The UserInsight-Streaming-Data-Pipeline is a real-time data processing pipeline that ingests data from an API (RandomUser API) into Kafka, processes it using Apache Spark, and stores it in AWS S3. An AWS Lambda function is triggered upon the arrival of new data in S3, pulling data into AWS Redshift for further analytics and visualization in Looker. Key components such as Kafka and Spark can be easily installed and managed using Docker.<br>
 !! You can view the dashboard [here. ](https://lookerstudio.google.com/reporting/581cb65a-beb0-45b6-a14c-8f86a316fd18)!! <br>
 ## Architecture
 <img src="readme_pic/UserInsight_Architecture.png" alt="Architecture" width="800">
