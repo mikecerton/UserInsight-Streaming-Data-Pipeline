@@ -86,4 +86,5 @@ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bi
 - AWS : <br>
 &emsp;https://docs.aws.amazon.com/s3/ <br>
 &emsp;https://docs.aws.amazon.com/redshift/ <br>
+&emsp;https://docs.aws.amazon.com/lambda/ <br>
 
