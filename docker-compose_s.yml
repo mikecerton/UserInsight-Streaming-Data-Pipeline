@@ -1,0 +1,33 @@
+services:
+  spark-master:
+    image: bitnami/spark:3.5.5
+    container_name: spark-master
+    hostname: spark-master
+    environment:
+      - SPARK_MODE=master
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+    ports:
+      - "9090:8080"  # Spark Web UI
+      - "7077:7077"  # Spark Master Port
+    volumes:
+      - ./my_spark:/opt/bitnami/my_spark
+
+  spark-worker:
+    image: bitnami/spark:3.5.5
+    container_name: spark-worker
+    hostname: spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+    depends_on:
+      - spark-master
+    volumes:
+      - ./my_spark:/opt/bitnami/my_spark
+      - ./requirements.txt:/opt/bitnami/requirements.txt
+      - ./.env:/opt/bitnami/.env
+    command: ["/bin/sh", "/opt/bitnami/my_spark/s_entrypoints.sh"]
