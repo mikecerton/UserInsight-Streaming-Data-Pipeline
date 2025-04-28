@@ -5,6 +5,6 @@ for i in $(seq 10 -1 1); do
     sleep 1
 dones
 
-echo "_____Running spark_stream.py_____"
+echo "_____Ready for run spark_stream_s3.py_____"
 
-# spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bitnami/my_spark/spark_stream.py
+# spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bitnami/my_spark/spark_stream_s3.py
