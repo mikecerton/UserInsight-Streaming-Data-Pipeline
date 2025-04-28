@@ -74,6 +74,20 @@ Execute the Spark job to process data from Kafka and store it in S3:
 docker exec -it spark-worker /bin/bash
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bitnami/my_spark/spark_stream_s3.py
 ```
+#### Explain Path <br>
+```bash
+1. Full architecture
+2. docker_kafka
+   - Kafka container with 1 node (KRaft mode)
+   - Python container
+3. my_kafka/kafka_stream.py (Pulls data from an API and sends messages to Kafka)
+4. docker_spark
+   - Master node (Spark)
+   - Worker node (Spark)
+5. my_spark/spark_stream.py (Processes streaming data from Kafka and saves Parquet files to S3)
+6. lambda_function.py (Triggers when a new object is added to the S3 bucket, pulling the data into Redshift)
+7. Pull data from Redshift to create a dashboard with Google Looker Studio
+```
 
 ## Disclaimer
 - RandomUser : <br>
