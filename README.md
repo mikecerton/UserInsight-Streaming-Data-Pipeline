@@ -86,7 +86,7 @@ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 /opt/bi
    - Worker node (Spark)
 5. my_spark/spark_stream.py (Processes streaming data from Kafka and saves Parquet files to S3)
 6. lambda_function.py (Triggers when a new object is added to the S3 bucket, pulling the data into Redshift)
-7. Pull data from Redshift to create a dashboard in Google Looker Studio
+7. Pull data from Redshift to create a dashboard with Google Looker Studio
 ```
 
 ## Disclaimer
